@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Sacramento } from "next/font/google";
 import "./globals.css";
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import Footer from "@/ui/footer";
 config.autoAddCss = false;
 
 const poppins = Poppins({ 
@@ -11,6 +12,12 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: '--font-poppins',
 });
+
+const sacramento = Sacramento({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: '--font-sacramento',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,7 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={` ${sacramento.variable} ${poppins.variable} flex min-h-screen w-screen flex-col items-center bg-slate-700 justify-center`}>
+        {children}
+        <Footer / >
+      </body>
     </html>
   );
 }

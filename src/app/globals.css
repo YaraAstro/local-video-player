@@ -35,3 +35,20 @@ body {
 .poppins {
   font-family: var(--font-poppins);
 }
+
+.sacramento {
+  font-family: var(--font-sacramento);
+}
+
+.custom-dashed {
+  border: 5px solid transparent;
+  border-image: linear-gradient(to right, rgb(255, 255, 255) 20%, rgba(153, 153, 153, 0) 20%) 1;
+  border-image-slice: 1;
+  border-radius: 25px;
+}
+
+.custom-dashed-right {
+  border: 5px solid transparent;
+  border-image: linear-gradient(to left, rgb(255, 255, 255) 20%, rgba(153, 153, 153, 0) 20%) 1;
+  border-image-slice: 1;
+}
