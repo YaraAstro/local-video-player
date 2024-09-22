@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${sacramento.variable} ${poppins.variable} flex min-h-screen w-screen flex-col items-center bg-slate-700 justify-center`}>
+      <body className={` ${sacramento.variable} ${poppins.variable} flex min-h-screen w-screen flex-col items-center bg-custom justify-center`}>
         {children}
         <Footer / >
       </body>
