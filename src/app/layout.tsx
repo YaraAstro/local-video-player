@@ -5,6 +5,7 @@ import "./globals.css";
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import Footer from "@/ui/footer";
+import { MediaProvider } from "@/context/mediaProvider";
 config.autoAddCss = false;
 
 const poppins = Poppins({ 
@@ -32,7 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${sacramento.variable} ${poppins.variable} flex min-h-screen w-screen flex-col items-center bg-custom justify-center`}>
-        {children}
+        <MediaProvider>
+          {children}
+        </MediaProvider>
         <Footer / >
       </body>
     </html>

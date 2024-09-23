@@ -1,22 +1,20 @@
 'use client';
 
+import { ThisMedia } from '@/context/mediaProvider';
 import DropZoneButton from '@/ui/dropZoneButton'; // Ensure this path is correct
 import { useRouter } from 'next/navigation'; // Correct import for useRouter
 import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 export default function Home() {
-  const [media, setMedia] = useState<File | null>(null);
+
+  const { setMedia } = ThisMedia()
   const router = useRouter();
 
-  const onDrop = (acceptedFiles: File[]) => {
-    setMedia(acceptedFiles[0]);
-    let path = URL.createObjectURL(acceptedFiles[0]);
-    let name = acceptedFiles[0].name;
-
-    // Navigate to play page with file URL and name
-    router.push(`/play?path=${encodeURIComponent(path)}&name=${encodeURIComponent(name)}`);
-  };
+  const onDrop = (allowFiles: File[]) => {
+    setMedia(allowFiles[0])
+    router.push('/play')
+  }
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
