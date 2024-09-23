@@ -6,7 +6,7 @@ const Page = () => {
     <div className='flex align-top gap-2 w-full h-screen p-2'>
         <div className='flex-grow basis-2/3 flex flex-col gap-2'>
             <div className='flex-grow basis-2/3 flex items-center rounded-xl justify-center backdrop-blur-md'>
-                {/* <VideoPlayer videoPath={''} /> */}
+                {/* player should be here */}
             </div>
             <div className='flex-grow basis-1/3 flex items-center rounded-xl justify-center backdrop-blur'></div>
         </div>
