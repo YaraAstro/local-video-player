@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
-import { Poppins, Sacramento } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import Footer from "@/ui/footer";
-import { MediaProvider } from "@/context/mediaProvider";
-config.autoAddCss = false;
-
-const poppins = Poppins({ 
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: '--font-poppins',
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
 });
-
-const sacramento = Sacramento({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: '--font-sacramento',
-})
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,11 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${sacramento.variable} ${poppins.variable} flex min-h-screen w-screen flex-col items-center bg-custom justify-center`}>
-        <MediaProvider>
-          {children}
-        </MediaProvider>
-        <Footer / >
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
       </body>
     </html>
   );
